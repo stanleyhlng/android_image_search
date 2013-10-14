@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Image Search</string>
+    <string name="title_activity_image_display">Image Search</string>
+    <string name="title_activity_search_options">Image Search</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="query_hint">Enter Search Terms</string>
+    <string name="search">Search</string>
+    <string name="load_more">Load More</string>
+	<string name="advanced_search_options">Advanced search options</string>
+	<string name="count_default">8</string>
+	<string name="image_color">Image Filter</string>
+	<string name="image_color_default">blue</string>
+	<string name="image_size">Image Size</string>
+	<string name="image_size_default">large</string>
+	<string name="image_type">Image Type</string>
+	<string name="image_type_default">photo</string>
+	<string name="site_search">Site Search</string>
+	<string name="site_search_hint">Enter Domain</string>
+	<string name="site_search_default"></string>
+	<string name="save">Save</string>
+    <string name="error_field_required">This field is required</string>
+	<string-array name="image_size_arrays">
+	    <item>icon</item>
+	    <item>small</item>
+	    <item>medium</item>
+	    <item>large</item>
+	    <item>xlarge</item>
+	    <item>xxlarge</item>
+	    <item>huge</item>
+	</string-array>
+	<string-array name="image_color_arrays">
+	    <item>black</item>
+	    <item>blue</item>
+	    <item>brown</item>
+	    <item>gray</item>
+	    <item>green</item>
+	    <item>orange</item>
+	    <item>pink</item>
+	    <item>purple</item>
+	    <item>red</item>
+	    <item>teal</item>
+	    <item>white</item>
+	    <item>yellow</item>
+	</string-array>
+	<string-array name="image_type_arrays">
+	    <item>face</item>
+	    <item>photo</item>
+	    <item>clipart</item>
+	    <item>lineart</item>
+	</string-array>
+</resources>
