@@ -18,8 +18,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
@@ -59,6 +57,20 @@ public class SearchActivity extends Activity {
 				i.putExtra("result", imageResult);
 				startActivity(i);
 			}
+		});
+		gvResults.setOnScrollListener(new EndlessScrollListener() {
+
+			@Override
+			public void loadMore(int page, int totalItemsCount) {
+			
+				String query = etQuery.getText().toString();
+				int start = page * options.getCount();
+
+				Log.d("DEBUG", String.format("page=%d, start=%d, total_items_count=%d", page, start, totalItemsCount));
+				loadData(query, start);
+				
+			}
+			
 		});
 	}
 
@@ -151,7 +163,21 @@ public class SearchActivity extends Activity {
 		etQuery.setText("");
 		imageResults.clear();
 		imageAdapter.clear();
-		btnLoadMore.setVisibility(View.INVISIBLE);
+		//btnLoadMore.setVisibility(View.INVISIBLE);
+		gvResults.setOnScrollListener(new EndlessScrollListener() {
+
+			@Override
+			public void loadMore(int page, int totalItemsCount) {
+			
+				String query = etQuery.getText().toString();
+				int start = page * options.getCount();
+
+				Log.d("DEBUG", String.format("page=%d, start=%d, total_items_count=%d", page, start, totalItemsCount));
+				loadData(query, start);
+				
+			}
+			
+		});
 	}
 	
 	public void loadData(String query, int start) {
@@ -183,12 +209,12 @@ public class SearchActivity extends Activity {
 							Log.d("DEBUG", imageResults.toString());
 							
 							if (imageAdapter.getCount() != count && imageAdapter.getCount() % options.getCount() == 0) {
-								btnLoadMore.setVisibility(View.VISIBLE);
+								//btnLoadMore.setVisibility(View.VISIBLE);
 							} else {
-								btnLoadMore.setVisibility(View.INVISIBLE);
+								//btnLoadMore.setVisibility(View.INVISIBLE);
 							}
 						} else {
-							btnLoadMore.setVisibility(View.INVISIBLE);							
+							//btnLoadMore.setVisibility(View.INVISIBLE);							
 						}
 					} catch (JSONException e) {
 						e.printStackTrace();
